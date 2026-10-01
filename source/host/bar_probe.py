@@ -40,8 +40,8 @@ fd = os.open(path, os.O_RDWR | os.O_SYNC)
 m = mmap.mmap(fd, 0x41000, mmap.MAP_SHARED, mmap.PROT_READ | mmap.PROT_WRITE, offset=0)
 base = ctypes.addressof(ctypes.c_char.from_buffer(m))
 def rd(off): return ctypes.c_uint32.from_address(base + off).value
-for off, what in ((0x00000, "BOPE status (expect version 0264 in the low half)"),
+for off, what in ((0x00000, "BOPE status (inn2f builds put the burn engine state in the low half: 0 = idle)"),
                   (0x00004, "BOPE +4 (same register, aliased)"),
                   (0x40064, "QSPI SPISR  (control: written by nobody here)"),
-                  (0x40070, "QSPI SPISSR (reset value 0xFFFFFFFF or similar)")):
+                  (0x40070, "QSPI SPISSR (0x3 = both chip selects released)")):
     print("  BAR0+0x%05X = 0x%08X   %s" % (off, rd(off), what))

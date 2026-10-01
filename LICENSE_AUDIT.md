@@ -53,7 +53,6 @@ gives a functionally equivalent image that is not byte-identical. The repository
 | `source/host/fpga_image_sel.py` | Derived from Mellanox (GPL-2.0 / OpenIB BSD) | CopyrightText: 2026 the innova2 contributors; CopyrightText: Mellanox Technologies Ltd.; S |
 | `source/host/fpga_jtag_grant.py` | Derived from Mellanox (GPL-2.0 / OpenIB BSD) | CopyrightText: 2026 the innova2 contributors; CopyrightText: Mellanox Technologies Ltd.; S |
 | `source/host/fpga_query.py` | Derived from Mellanox (GPL-2.0 / OpenIB BSD) | CopyrightText: 2026 the innova2 contributors; CopyrightText: Mellanox Technologies Ltd.; S |
-| `source/host/fpga_reload.py` | Derived from Mellanox (GPL-2.0 / OpenIB BSD) | CopyrightText: 2026 the innova2 contributors; CopyrightText: Mellanox Technologies Ltd.; S |
 | `source/host/rawspi.py` | Ours | CopyrightText: 2026 the innova2 contributors; SPDX-License-Identifier: Apache-2.0 |
 | `source/ip/ddr4_flex_ip/ddr4_flex/ddr4_flex.xci` | Ours, tool-generated | — |
 | `source/rtl/bope_burn.v` | Derived from Mellanox (GPL-2.0 / OpenIB BSD) | CopyrightText: 2026 the innova2 contributors; CopyrightText: Mellanox Technologies Ltd.; S |
@@ -83,6 +82,6 @@ gives a functionally equivalent image that is not byte-identical. The repository
 * **Licence text** (4 files): Verbatim licence text (SPDX licence list, or our LicenseRef explanation). Not a work of ours to license.
 * **Vivado-built binary containing AMD IP** (9 files): Bitstreams and flash images synthesised by Vivado: they contain AMD IP cores (XDMA/PCIe, MIG, AXI Quad SPI, SmartConnect, ...) under AMD's IP licence terms.
 * **Hardware facts / third-party data** (5 files): Pin locations or memory-part timings (Micron data in AMD's MIG CSV format). Facts; note the source.
-* **Derived from Mellanox (GPL-2.0 / OpenIB BSD)** (7 files): Ours, but register maps / protocol / ioctl numbers transcribed from Mellanox sources that are dual GPL-2.0 or OpenIB BSD. Ship the BSD notice + attribution.
+* **Derived from Mellanox (GPL-2.0 / OpenIB BSD)** (6 files): Ours, but register maps / protocol / ioctl numbers transcribed from Mellanox sources that are dual GPL-2.0 or OpenIB BSD. Ship the BSD notice + attribution.
 * **Ours, tool-generated** (1 files): Produced by Vivado/our scripts from our own design or measurements; no third-party text. Apache-2.0 via REUSE.toml.
 * **Mellanox data (captured)** (1 files): Register values read from a running Mellanox Flex image and reproduced verbatim. Facts, not code, but the vendor's values: attribution; owner's call.

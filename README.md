@@ -88,6 +88,22 @@ slot through the burn endpoint or through a User image's flash controller.
 | `EVIDENCE.md` | summary of the hardware results, reproducibility proofs and design findings |
 | `SHA256SUMS` | manifest of every file: `sha256sum -c SHA256SUMS` |
 
+### Host tools (`source/host/`)
+
+All tested against a resident inn2f r2 on 2026-09-30. "ConnectX node" is `/dev/<ConnectX BDF>_mlx5_fpga_tools`
+(vendor `mlx5_fpga_tools` module); "endpoint" is the burn endpoint `15b3:0264`, present while the Flex image is
+resident. Run as root.
+
+| script | talks to | what it does |
+|---|---|---|
+| `fpga_query.py [node]` | ConnectX node | the ConnectX's live view: admin image, operating image, status (`status=1` = rejected) |
+| `fpga_image_sel.py <node> user\|flex` | ConnectX node | schedules the image for the next cold boot; works even when the running image answers nothing |
+| `fpga_jtag_grant.py <node> query\|disconnect\|connect` | ConnectX node | the JTAG grant (`disconnect` = the vendor menu's "Enable JTAG Access"); lost on every cold boot |
+| `cr_read.py [node]` | ConnectX node | dumps the CR identity, fan, power, BIST and temperature registers; only while a Flex-slot image runs |
+| `rawspi.py rdid\|read\|dump` (`BDF=<bdf>`) | endpoint, or a User image with a flash controller (`RAWSPI_BAR`, `RAWSPI_BAR_OFFSET`) | direct SPI access to both flash chips; `program` clears bits in single bytes only and never erases |
+| `bope_probe.py <bdf> status\|pcitest\|burn <chip> <addr> <file>` | endpoint | the vendor burn protocol without the vendor driver (`innova2_app -b` does the same) |
+| `bar_probe.py <bdf>` | endpoint | reads the burn register and the flash controller's status registers: is the endpoint's AXI side alive |
+
 ## Installing: this writes the Flex slot, so read this first
 
 Only write the Flex slot (0x03000000) **deliberately**, and only on a card with a way back: a JTAG cable
