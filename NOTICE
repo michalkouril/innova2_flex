@@ -1,0 +1,12 @@
+innova2_flex -- Flex-slot image for the Innova-2 card.
+Copyright 2026 the innova2 contributors. Licensed under the Apache License, Version 2.0 (LICENSE).
+
+Third-party material:
+* The BOPE burn protocol and the mlx5_fpga_tools interfaces follow Mellanox's burn_app.c / mlx_fpga_bope.c,
+  Copyright 2018 Mellanox Technologies Ltd., dual GPL-2.0 / OpenIB.org BSD; used under the OpenIB.org BSD licence
+  (LICENSES/Linux-OpenIB.txt). source/rtl/cr_map_gen.v reproduces register values read from Mellanox's Flex image.
+* images/: produced by AMD Vivado, containing AMD IP cores (LICENSES/LicenseRef-AMD-IP.txt).
+* source/ip/ddr4_flex_ip/ddr4_flex/ddr4_flex.xci: our DDR4 MIG configuration. The build regenerates the core with
+  your own AMD Vivado licence. The generated output (AMD confidential and proprietary) is not distributed.
+* The prebuilt images are distributed as Bitstreams under the AMD Vivado EULA, section 3(a)(3)C, and only for use
+  to program AMD (Xilinx) devices.

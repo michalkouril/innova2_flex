@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 the innova2 contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# build outputs (source/build/build.sh [output dir], default ./flex_build)
+/flex_build/
+.Xil/
+*.jou
+*.log
+*.str
+# python
+__pycache__/
+*.pyc
+*.swp

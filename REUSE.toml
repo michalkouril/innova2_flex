@@ -1,0 +1,21 @@
+version = 1
+SPDX-PackageName = "innova2_flex"
+SPDX-PackageSupplier = "the innova2 contributors"
+
+[[annotations]]
+path = ["LICENSE_AUDIT.md", "README.md", "SHA256SUMS", "source/board/custom_parts_mt40a1g16knr075_dw8b.csv", "source/ip/ddr4_flex_ip/ddr4_flex/ddr4_flex.xci"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 the innova2 contributors"]
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["images/inn2f_r2.bit", "images/inn2f_r2_primary.mcs", "images/inn2f_r2_primary.prm", "images/inn2f_r2_secondary.mcs", "images/inn2f_r2_secondary.prm", "images/inn2f_r2_split_primary.bin", "images/inn2f_r2_split_primary.prm", "images/inn2f_r2_split_secondary.bin", "images/inn2f_r2_split_secondary.prm"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 the innova2 contributors", "Advanced Micro Devices, Inc."]
+SPDX-License-Identifier = "Apache-2.0 AND LicenseRef-AMD-IP"
+
+[[annotations]]
+path = ["NOTICE"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 the innova2 contributors"]
+SPDX-License-Identifier = "Apache-2.0"
