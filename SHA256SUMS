@@ -6,7 +6,7 @@ c16f425ba2fcfb1211c0b85cb9d4287c7124362fbfd1191051bf6f29b3be6eb2  ./EVIDENCE.md
 6503d0418051ea29997c4c4d950386fcc356c9459a73a62d5d67707d04739b92  ./LICENSES/Linux-OpenIB.txt
 e36767057301158b834b85161716091ff6591bbc23583944cfbdf75cebb7aea3  ./LICENSE_AUDIT.md
 cdaefc95716c7cd595dacf381caf455b788a803792dac4ee8875f18c1bc68348  ./NOTICE
-8a952447b2a7183ba78c93fed34bb754ea1f025749911701000a26275dd4ce85  ./README.md
+a8482cb514a8925a7724f5f5c6fda7128818ff1b0053a53de5948c3bc4bc17fa  ./README.md
 bd494323f0eabb85bafc5f39df2186822ce148fb5d3d85eef838e51b3f91c916  ./REUSE.toml
 23adba58a04759c5203204ee11307c0fd426e58c9947ff0e1554f584168b0f83  ./images/inn2f_r2.bit
 1d97dcee05d119f104f428c7345773a64579f48afd77e8952b75fd979101bb56  ./images/inn2f_r2_primary.mcs
@@ -31,7 +31,7 @@ eaba2f9ea5f43cedeedc8359ff638f92a2ce499308178ebf3d469294530c9fcc  ./source/const
 ec35768d4c4d1c23d57570bfd9cfbdc4ddc98ed8541a85778841f8deaee42412  ./source/constraints/spi1_rescue.xdc
 717cb9c1ab78545f1c1d4939525661a2d5ad0a9697926c01f115a9e60d7effd3  ./source/constraints/static_pins.xdc
 58f0e35ed186e229d3ad61e7a0c8af9893cb26b2ac63a10227574e391552aee9  ./source/docs/boot_chain.md
-6c64a9f7ea983a26db227fdda81b8a17fc3663672f6f156167f168b09ff75db9  ./source/docs/ddr4.md
+9d4ee29d02c2df690e590bfc1ab02a185d3b5bf35b060c0008eac5d21773c5ce  ./source/docs/ddr4.md
 09fe4d8955ea2abc17686a1d7ef44c9c8ada5eff28ef5365b203917fdaa310c9  ./source/docs/ddr_health_map.md
 fc329c633465265f580e59b3673d0e4dcb9ef6840b3d2f159cb427c7259ac3a5  ./source/docs/iprog_watchdog.md
 4c4d62229f0dd01ff364214e521c220ca3b048e2ac30d9019104193fb27dec9f  ./source/docs/modern_drivers.md
@@ -52,7 +52,7 @@ de6cf919290a8637369edbfb90b12a100b6d8796764f0cf20b5fa959af2b0192  ./source/rtl/c
 8cc9f7ef9447b0615e41796b6f44add085c3e0c2de39e3f2689a975302fc6602  ./source/rtl/flex_burn_top.v
 6e097752ed6840dee49a83f9a5edf82e3960ac2c406bdd78705e503ccacb783e  ./source/rtl/flex_hop.v
 987fb8070eb873150247cfc1d6c732ded41e897a45fee4f8b2b2aaa8cecbc4d0  ./source/rtl/i2c_cr_slave.v
-c980edd50e636c932fcc357bfd30987e141e55953da8e2638e22d5793ad427dc  ./source/rtl/power_burn.v
+85c5f67f915d0e54ad4b8e0886763ce3048dd5a25f71ef4d830a0e5756c5417b  ./source/rtl/power_burn.v
 9bc735c1c2ae9ca4a5a67999f6a6a6524d1478d2d76d4d0452701ea9049fd920  ./source/rtl/sysmon_temp.v
 1ed2ca66d4b7e0e50e71a76fd95c31ff90d8ec61ee34d3a8ceb518158a15f049  ./source/sim/qspi_flash_model.sv
 60b45148f99b37813695a48b8c9421c04dbad75c7304e92fd231cfc3627453cb  ./source/sim/tb_bope_burn.sv

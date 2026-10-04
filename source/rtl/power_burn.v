@@ -8,8 +8,9 @@
 //
 // Behind the app's "Increase FPGA power consumption" (CR 0x24): NCHAIN free-running LFSRs in 16
 // groups, and the level written to CR 0x24 decides how many groups clock. Level 0 (the reset value)
-// clocks nothing, so a normal boot draws no extra power; 1023 clocks all 32K flops. Used for thermal
-// tests. It drives no pin, so it cannot disturb any board net.
+// clocks nothing, so a normal boot draws no extra power; 1023 clocks all 32K flops. It is here so the
+// app's menu item does something real; no tool in this repository writes it, and it only runs while
+// the card rests in the Flex image. It drives no pin, so it cannot disturb any board net.
 //
 // Every chain carries DONT_TOUCH: a load with no consumer is exactly what synthesis removes.
 // `alive` (the XOR of all chains) exists only so the chains have an output.

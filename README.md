@@ -25,7 +25,7 @@ This image replaces Mellanox's "Innova-2 Flex" FPGA image: the one in the Flex s
 | **Live sensors** | the SYSMON sensor page (temperature, voltages) is our die's live registers; the whole DRP space is served | not a replay of captured values |
 | **DDR4 memory controller** | the MIG is present and calibrates at power-on; the calibration flag is live at CR `0x020054` | runs at **DDR4-2666**, not the DDR4-2400 of the published documentation: our setup differs (a custom MIG part file, see below). Defective DDR is visible at `0x020054` as `0`. Specification and why: `source/docs/ddr4.md` |
 | **Fan tachometer** | the app's fan-speed measurement (start, wait, read pulse count) counts real edges on pin C3 | C3 was identified by measurement (~216 pulses/s, ~6,500 RPM by the app's formula), not from documentation; it is a build parameter |
-| **Power load** | "Increase FPGA power consumption" (CR `0x24`) switches on a real fabric load of the requested size | used for thermal tests |
+| **Power load** | "Increase FPGA power consumption" (CR `0x24`) switches on a real fabric load of the requested size | present so `innova2_app`'s menu item does something real; only active while the card rests in the Flex image; no validated thermal measurement yet |
 | **ConnectX handshake signals** | the E4 heartbeat the ConnectX expects from a Flex image | an image without it is rejected |
 
 > **DDR4 setup differs from the published documentation.** Published Innova-2 documentation configures the DDR4 at
