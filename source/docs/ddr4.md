@@ -39,7 +39,8 @@ The image does not need memory. The controller is there for two reasons:
 
 * **72-bit with ECC:** the card has nine byte lanes wired to memory, and the vendor image trains all of them. A
   narrower controller would leave a lane untrained and its pins undriven.
-* **DDR4-2666:** the `-075` speed grade of the devices. Measured on hardware (in a development design with the same
+* **DDR4-2666:** the `-075` speed grade of the devices. This differs from the published Innova-2 documentation,
+  which runs the DDR4 at 2400 MT/s; the custom part file below is what makes the higher speed possible. Measured on hardware (in a development design with the same
   controller settings): 8 GB byte-perfect at 2668 MT/s, and `ui_clk` measured against the host clock at
   333.47 MHz.
 * **Reference clock declared as 10000 ps:** MIG only accepts a reference period from its legal list for each tCK,

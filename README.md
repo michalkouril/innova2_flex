@@ -7,6 +7,10 @@ Version: **inn2f r2** (USERCODE `0xDD500132`, CR identity `0xDD02`), built 2026-
 This image replaces Mellanox's "Innova-2 Flex" FPGA image: the one in the Flex slot of the card's flash
 (0x03000000). The ConnectX-5 loads it at power-on, before handing over to the User image.
 
+> **Use at your own risk.** Writing the Flex slot can leave the card unable to boot its FPGA image. Recovery over
+> JTAG is typically possible (see [Installing](#installing-this-writes-the-flex-slot-so-read-this-first)). This image
+> has been tested only on the **NV303212A** (8 GB DDR4) variant of the Innova-2.
+
 ## Features
 
 ### Implemented
@@ -19,10 +23,17 @@ This image replaces Mellanox's "Innova-2 Flex" FPGA image: the one in the Flex s
 | **CR responder** | answers the ConnectX's CR-space reads the way `innova2_app` and the vendor tools expect; unimplemented addresses return the vendor's own "not implemented" sentinel `0x8BADF00D` | the vendor's register map was captured once and is replayed where a value must match (see Provenance) |
 | **Identity** | version `0xDD02`, our build date and time, in the CR identity block | the vendor's `0xC1` / 27-11-2018 stamp is gone |
 | **Live sensors** | the SYSMON sensor page (temperature, voltages) is our die's live registers; the whole DRP space is served | not a replay of captured values |
-| **DDR4 memory controller** | the MIG is present and calibrates at power-on; the calibration flag is live at CR `0x020054` | defective DDR is visible there as `0`. Specification and why: `source/docs/ddr4.md` |
+| **DDR4 memory controller** | the MIG is present and calibrates at power-on; the calibration flag is live at CR `0x020054` | runs at **DDR4-2666**, not the DDR4-2400 of the published documentation: our setup differs (a custom MIG part file, see below). Defective DDR is visible at `0x020054` as `0`. Specification and why: `source/docs/ddr4.md` |
 | **Fan tachometer** | the app's fan-speed measurement (start, wait, read pulse count) counts real edges on pin C3 | C3 was identified by measurement (~216 pulses/s, ~6,500 RPM by the app's formula), not from documentation; it is a build parameter |
 | **Power load** | "Increase FPGA power consumption" (CR `0x24`) switches on a real fabric load of the requested size | used for thermal tests |
 | **ConnectX handshake signals** | the E4 heartbeat the ConnectX expects from a Flex image | an image without it is rejected |
+
+> **DDR4 setup differs from the published documentation.** Published Innova-2 documentation configures the DDR4 at
+> 2400 MT/s. This image runs it at **2666 MT/s** (tCK 750 ps, CL 19), the rated speed of the `-075` devices. MIG
+> caps x16 custom parts at DDR4-2400, so we describe the same devices as x8 in a custom part file
+> (`source/board/custom_parts_mt40a1g16knr075_dw8b.csv`). Measured on hardware with the same controller settings:
+> 8 GB byte-perfect at 2668 MT/s.
+> Details: `source/docs/ddr4.md`.
 
 ### Not implemented
 
@@ -204,3 +215,8 @@ Two pitfalls:
   text travel with this folder: `LICENSES/Linux-OpenIB.txt` and `NOTICE`.
 
 Our work here is Apache-2.0, © 2026 the innova2 contributors (REUSE-compliant; see `LICENSES/`, `REUSE.toml`, `NOTICE`). The flash images contain AMD IP cores (`LicenseRef-AMD-IP`). They are distributed as Bitstreams under the AMD Vivado EULA, section 3(a)(3)C, and only for use to program AMD (Xilinx) devices. No AMD-proprietary source is included: the DDR4 controller ships as its `.xci`, and the build regenerates it.
+
+## Acknowledgements
+
+Thanks to [mwrnd](https://github.com/mwrnd/) for the public notes, demos and tooling on the Innova-2 Flex
+(XCKU15P) that made working with this card far more approachable.
